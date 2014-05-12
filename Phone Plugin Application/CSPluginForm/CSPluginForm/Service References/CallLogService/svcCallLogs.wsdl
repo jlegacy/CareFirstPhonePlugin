@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service contains methods that add, edit, and delete call logs within SmarterTrack.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx">
+      <s:element name="CreateCallLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateCallLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCallLogResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GenericResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateCallLog2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCallLog2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCallLog2Result" type="tns:CallLogIdResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallLogIdResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallLogId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModifyCallLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="logID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyCallLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyCallLogResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCallLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="logID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCallLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCallLogResult" type="tns:GenericResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="logID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCallLogResult" type="tns:CallLogInfoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallLogInfoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CallLog" type="tns:CallLogInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CallLogInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateDeleted" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncomingCall" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCallLogByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallLogByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCallLogByUserResult" type="tns:CallLogInfoResultArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallLogInfoResultArray">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallLogs" type="tns:ArrayOfCallLogInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCallLogInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CallLogInfo" type="tns:CallLogInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCallLogByGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="authPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedEnd" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCallLogByGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCallLogByGroupResult" type="tns:CallLogInfoResultArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateCallLogSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCallLog" />
+  </wsdl:message>
+  <wsdl:message name="CreateCallLogSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCallLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCallLog2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCallLog2" />
+  </wsdl:message>
+  <wsdl:message name="CreateCallLog2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCallLog2Response" />
+  </wsdl:message>
+  <wsdl:message name="ModifyCallLogSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyCallLog" />
+  </wsdl:message>
+  <wsdl:message name="ModifyCallLogSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyCallLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCallLogSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCallLog" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCallLogSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCallLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallLog" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallLogByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallLogByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogByGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCallLogByGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetCallLogByGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCallLogByGroupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="svcCallLogsSoap">
+    <wsdl:operation name="CreateCallLog">
+      <wsdl:input message="tns:CreateCallLogSoapIn" />
+      <wsdl:output message="tns:CreateCallLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCallLog2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new call log as if it was added from the management interface.</wsdl:documentation>
+      <wsdl:input message="tns:CreateCallLog2SoapIn" />
+      <wsdl:output message="tns:CreateCallLog2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCallLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifies the properties of an existing call log.</wsdl:documentation>
+      <wsdl:input message="tns:ModifyCallLogSoapIn" />
+      <wsdl:output message="tns:ModifyCallLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCallLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an existing call log from SmarterTrack.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteCallLogSoapIn" />
+      <wsdl:output message="tns:DeleteCallLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the properties of a single call log.</wsdl:documentation>
+      <wsdl:input message="tns:GetCallLogSoapIn" />
+      <wsdl:output message="tns:GetCallLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all call logs assigned to a specific agent within a given time range</wsdl:documentation>
+      <wsdl:input message="tns:GetCallLogByUserSoapIn" />
+      <wsdl:output message="tns:GetCallLogByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all call logs assigned to a specific group within a given time range</wsdl:documentation>
+      <wsdl:input message="tns:GetCallLogByGroupSoapIn" />
+      <wsdl:output message="tns:GetCallLogByGroupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="svcCallLogsSoap" type="tns:svcCallLogsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCallLog">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/CreateCallLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCallLog2">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/CreateCallLog2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCallLog">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/ModifyCallLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCallLog">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/DeleteCallLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLog">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByUser">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLogByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByGroup">
+      <soap:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLogByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="svcCallLogsSoap12" type="tns:svcCallLogsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCallLog">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/CreateCallLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCallLog2">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/CreateCallLog2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCallLog">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/ModifyCallLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCallLog">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/DeleteCallLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLog">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByUser">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLogByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallLogByGroup">
+      <soap12:operation soapAction="http://www.smartertools.com/SmarterTrack/Services2/svcCallLogs.asmx/GetCallLogByGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="svcCallLogs">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This web service contains methods that add, edit, and delete call logs within SmarterTrack.</wsdl:documentation>
+    <wsdl:port name="svcCallLogsSoap" binding="tns:svcCallLogsSoap">
+      <soap:address location="http://support.cybersharks.net/services2/svcCallLogs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="svcCallLogsSoap12" binding="tns:svcCallLogsSoap12">
+      <soap12:address location="http://support.cybersharks.net/services2/svcCallLogs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
